@@ -6,11 +6,11 @@
 /*   By: jbrozzu <jbrozzu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 16:55:50 by jbrozzu           #+#    #+#             */
-/*   Updated: 2014/12/06 13:58:15 by jbrozzu          ###   ########.fr       */
+/*   Updated: 2015/01/21 15:46:04 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 int		ft_fonction_2(int const fd, t_static *toto)
 {

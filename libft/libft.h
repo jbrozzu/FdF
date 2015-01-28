@@ -16,6 +16,18 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+
+# define BUF_SIZE 40
+
+typedef struct		s_static
+{
+	const char		*str;
+	const char		*copy;
+	unsigned int	text_size;
+	unsigned int	cmp_text_size;
+}					t_static;
 
 typedef struct		s_list
 {
@@ -82,5 +94,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 char				**ft_strsplit(char const *s, char c);
+int					get_next_line(int const fd, char **line);
+int					ft_fonction_2(int const fd, t_static *toto);
+int					ft_fonction_3(t_static *toto, char **line);
 
 #endif

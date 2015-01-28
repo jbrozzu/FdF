@@ -6,39 +6,14 @@
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/12 15:18:04 by jbrozzu           #+#    #+#             */
-/*   Updated: 2014/12/12 16:33:23 by jbrozzu          ###   ########.fr       */
+/*   Updated: 2015/01/21 17:28:13 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "fdf.h"
+#include "libft/libft.h"
 
-typedef struct	s_env
-{
-	void *mlx;
-	void *win;
-}				t_env;
-
-void	draw(void *mlx, void *win)
-{
-	int x;
-	int y;
-
-	y = 100;
-	while (y < 200)
-	{
-		x = 100;
-		while (x < 200)
-		{
-			mlx_pixel_put(mlx, win, x, y, 0xFF0000);
-			x++;
-		}
-		y++;
-	}
-}
-
-int		key_hook(int keycode, t_env *e)
+int		key_hook(int keycode)
 {
 	if (keycode == 65307)
 		exit(0);
@@ -47,18 +22,32 @@ int		key_hook(int keycode, t_env *e)
 
 int		expose_hook(t_env *e)
 {
-	draw(e->mlx, e->win);
+	int fd;
+
+	fd = open(e->argv, O_RDONLY);
+	if (fd == -1)
+	{
+		perror(e->argv);
+		exit(0);
+	}
+	reader(fd, e);
 	return (0);
 }
 
-int		main(int ac, char **av)
+int		main(int argc, char **argv)
 {
 	t_env e;
-
-	e.mlx = mlx_init();
-	e.win = mlx_new_window(e.mlx, 420, 420, "42");
-	mlx_key_hook(e.win, key_hook, &e);
-	mlx_expose_hook(e.win, expose_hook, &e);
-	mlx_loop(e.mlx);
+	
+	if (argc == 2)
+	{
+		e.mlx = mlx_init();
+		e.win = mlx_new_window(e.mlx, 1500, 900, "42");
+		e.argv = ft_strdup(argv[1]);
+		mlx_key_hook(e.win, key_hook, &e);
+		mlx_expose_hook(e.win, expose_hook, &e);
+		mlx_loop(e.mlx);
+	}
+	else
+		write(1, "usage : ./fdf file_name\n", 24);
 	return (0);
 }
