@@ -19,3 +19,15 @@ int		positive_valor(int res)
 		res *= (-1);
 	return (res);
 }
+
+void	swap(long *x1, long *x2, long *y1, long *y2)
+{
+	long	temp;
+
+	temp = *x1;
+	*x1 = *x2;
+	*x2 = temp;
+	temp = *y1;
+	*y1 = *y2;
+	*y2 = *y1;
+}

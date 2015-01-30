@@ -12,12 +12,12 @@
 
 NAME = fdf
 FLAGS = -Wall -Werror -Wextra
-SRC = main.c read_file.c ./libft/libft.a
+SRC = main.c read_file.c trace_line.c tools.c ./libft/libft.a
 
 all: $(NAME)
 
 $(NAME): lib
-	@gcc -o $(NAME) $(SRC) -L/usr/X11/lib -lmlx -lXext -lX11
+	@gcc $(FLAGS) -o $(NAME) $(SRC) -L/usr/X11/lib -lmlx -lXext -lX11
 	@echo "\n    C'est fait !    \n"
 
 lib:
