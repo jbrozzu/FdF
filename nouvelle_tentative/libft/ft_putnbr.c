@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/28 17:12:42 by jbrozzu           #+#    #+#             */
-/*   Updated: 2015/02/11 18:41:20 by jbrozzu          ###   ########.fr       */
+/*   Created: 2014/11/04 19:38:33 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/11/11 18:30:51 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fdf.h"
+#include "libft.h"
 
-int		positive_valor(int res)
+void	ft_putnbr(int n)
 {
-	if (res < 0)
-		res *= (-1);
-	return (res);
-}
-
-void	swap(long *x1, long *x2, long *y1, long *y2)
-{
-	long	temp;
-
-	temp = *x1;
-	*x1 = *x2;
-	*x2 = temp;
-	temp = *y1;
-	*y1 = *y2;
-	*y2 = *y1;
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n < 10)
+		ft_putchar(n + 48);
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 }

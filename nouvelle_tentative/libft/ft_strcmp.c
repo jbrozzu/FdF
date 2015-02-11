@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/28 17:12:42 by jbrozzu           #+#    #+#             */
-/*   Updated: 2015/02/11 18:41:20 by jbrozzu          ###   ########.fr       */
+/*   Created: 2014/11/04 15:05:09 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/11/11 18:44:40 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fdf.h"
+#include "libft.h"
 
-int		positive_valor(int res)
+int		ft_strcmp(const char *str1, const char *str2)
 {
-	if (res < 0)
-		res *= (-1);
-	return (res);
-}
+	int i;
 
-void	swap(long *x1, long *x2, long *y1, long *y2)
-{
-	long	temp;
-
-	temp = *x1;
-	*x1 = *x2;
-	*x2 = temp;
-	temp = *y1;
-	*y1 = *y2;
-	*y2 = *y1;
+	i = 0;
+	while (str1[i] && str2[i] && str1[i] == str2[i])
+		i++;
+	return (str1[i] - str2[i]);
 }

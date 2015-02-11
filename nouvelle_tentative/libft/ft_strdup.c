@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/28 17:12:42 by jbrozzu           #+#    #+#             */
-/*   Updated: 2015/02/11 18:41:20 by jbrozzu          ###   ########.fr       */
+/*   Created: 2014/11/03 15:50:51 by jbrozzu           #+#    #+#             */
+/*   Updated: 2015/02/03 15:59:33 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fdf.h"
+#include "libft.h"
 
-int		positive_valor(int res)
+char	*ft_strdup(const char *src)
 {
-	if (res < 0)
-		res *= (-1);
-	return (res);
-}
+	char	*dest;
+	int		i;
 
-void	swap(long *x1, long *x2, long *y1, long *y2)
-{
-	long	temp;
-
-	temp = *x1;
-	*x1 = *x2;
-	*x2 = temp;
-	temp = *y1;
-	*y1 = *y2;
-	*y2 = *y1;
+	i = ft_strlen(src);
+	dest = (char *)malloc(sizeof(char) * (i + 1));
+	if (!dest)
+		return (NULL);
+	dest = ft_strcpy(dest, src);
+	return (dest);
 }

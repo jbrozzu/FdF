@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/28 17:12:42 by jbrozzu           #+#    #+#             */
-/*   Updated: 2015/02/11 18:41:20 by jbrozzu          ###   ########.fr       */
+/*   Created: 2014/11/04 15:12:17 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/12/08 15:39:32 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fdf.h"
+#include "libft.h"
 
-int		positive_valor(int res)
+int		ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	if (res < 0)
-		res *= (-1);
-	return (res);
-}
+	size_t	i;
 
-void	swap(long *x1, long *x2, long *y1, long *y2)
-{
-	long	temp;
-
-	temp = *x1;
-	*x1 = *x2;
-	*x2 = temp;
-	temp = *y1;
-	*y1 = *y2;
-	*y2 = *y1;
+	i = 0;
+	if ((str1 == NULL && str2 == NULL) || n == 0)
+		return (0);
+	if (str1 == NULL)
+		return (-1);
+	if (str2 == NULL)
+		return (1);
+	while (str1[i] && str2[i] && str1[i] == str2[i] && i < (n - 1))
+		i++;
+	return (str1[i] - str2[i]);
 }

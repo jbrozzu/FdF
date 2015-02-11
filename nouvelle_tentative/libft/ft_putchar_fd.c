@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/28 17:12:42 by jbrozzu           #+#    #+#             */
-/*   Updated: 2015/02/11 18:41:20 by jbrozzu          ###   ########.fr       */
+/*   Created: 2014/11/04 19:29:54 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/11/08 11:03:38 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "fdf.h"
+#include "libft.h"
 
-int		positive_valor(int res)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (res < 0)
-		res *= (-1);
-	return (res);
-}
-
-void	swap(long *x1, long *x2, long *y1, long *y2)
-{
-	long	temp;
-
-	temp = *x1;
-	*x1 = *x2;
-	*x2 = temp;
-	temp = *y1;
-	*y1 = *y2;
-	*y2 = *y1;
+	write(fd, &c, 1);
 }

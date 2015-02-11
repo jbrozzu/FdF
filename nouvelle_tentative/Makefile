@@ -6,13 +6,13 @@
 #    By: jbrozzu <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/12 16:10:15 by jbrozzu           #+#    #+#              #
-#    Updated: 2015/02/04 16:07:40 by jbrozzu          ###   ########.fr        #
+#    Updated: 2015/02/11 18:41:06 by jbrozzu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
-FLAGS = -Wall -Werror -Wextra
-SRC = main.c trace_line.c tools.c get_tab.c ./libft/libft.a
+FLAGS = -Wall -Werror  -Wextra
+SRC = main.c trace_line.c tools.c get_tab2.c read_file.c ./libft/libft.a
 
 all: $(NAME)
 
