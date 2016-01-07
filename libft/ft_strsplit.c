@@ -60,6 +60,7 @@ char			**ft_strsplit(char const *s, char c)
 	size_t	k;
 	size_t	*l;
 
+	tab = NULL;
 	j = 0;
 	k = 0;
 	l = &k;

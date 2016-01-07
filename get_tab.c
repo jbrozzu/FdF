@@ -54,6 +54,7 @@ void	get_tab(int fd, t_env *e)
 	int		j;
 
 	ret = 1;
+	i = 0;
 	line = malloc(sizeof(char*) * 1024);
 	while (ret > 0)
 	{

@@ -37,6 +37,7 @@ char		*ft_itoa(int n)
 	int		j;
 	char	*str;
 
+	i = 0;
 	j = n;
 	while (j /= 10)
 		i++;

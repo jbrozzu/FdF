@@ -13,7 +13,7 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include <mlx.h>
+# include "/usr/X11/include/mlx.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
